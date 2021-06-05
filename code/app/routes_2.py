@@ -43,4 +43,4 @@ def upload():
 @application.route('/team')
 def team():
     """Index Page : Renders index.html with author name."""
-    return (render_template('our-team.html', author='Deep Deception'))
+    return (render_template('our-team.html', author='Deception Perception'))
