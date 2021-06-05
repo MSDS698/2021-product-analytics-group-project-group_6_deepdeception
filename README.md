@@ -23,4 +23,4 @@ Outcome
 ----
 About Us
 ----
-Berkay Canogullari, Flora Chen, Aneri Dand, Eriko Funasato, Mauro Napoli, Sophie Wang, and Ricky Zhang are all receiving a Master's Degree in Data Science at the University of San Francisco.
+Berkay Canogullari, Flora Chen, Aneri Dand, Eriko Funasato, Mauro Napoli, Victor Palacios, Sophie Wang, and Ricky Zhang are all receiving a Master's Degree in Data Science at the University of San Francisco.
