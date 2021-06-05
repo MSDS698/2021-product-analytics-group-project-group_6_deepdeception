@@ -6,5 +6,4 @@ import os
 application = Flask(__name__)
 application.secret_key = os.urandom(24)
 
-from app import routes # routes.py needs to import "application" variable in __init__.py (Altough it violates PEP8 standards)
-
+from app import routes_2 # routes.py needs to import "application" variable in __init__.py (Altough it violates PEP8 standards)
