@@ -1,4 +1,5 @@
-from app import application, classes, db
+from app import application, classes, db, model, tokenizer
+from app.model import predict_statement
 from flask import render_template, redirect, url_for
 from flask_login import current_user, login_user, login_required, logout_user
 from flask_wtf import FlaskForm
@@ -19,6 +20,23 @@ class UploadFileForm(FlaskForm):
 #     """Index Page : Renders index.html with author name."""
 #     return ("<h1> File uploaded. Thanks for using Deep Depeception! </h1>")
 #     # return (render_template('index.html', author='Deep Deception'))
+
+
+@application.route('/predict', methods=['GET', 'POST'])
+@login_required
+def predict():
+    prediction_form = classes.PredictionForm()
+    if prediction_form.validate_on_submit():
+        statement = prediction_form.statement.data
+
+        soft_preds, hard_preds = predict_statement(str(statement), model=model, tokenizer=tokenizer)
+
+        if hard_preds[0] == 1:
+            return "The statement is True."
+        else:
+            return "The statement is False."
+
+    return render_template('predict.html', form=prediction_form)
 
 
 @application.route('/upload', methods=['GET', 'POST'])
@@ -42,7 +60,7 @@ def upload():
     return render_template('upload.html', form=file)
 
 
-@application.route('/register',  methods=('GET', 'POST'))
+@application.route('/register', methods=('GET', 'POST'))
 def register():
     registration_form = classes.RegistrationForm()
     if registration_form.validate_on_submit():
@@ -76,7 +94,7 @@ def login():
         # Login and validate the user.
         if user is not None and user.check_password(password):
             login_user(user)
-            return redirect(url_for('upload'))
+            return redirect(url_for('predict'))
 
     return render_template('login.html', form=login_form)
 

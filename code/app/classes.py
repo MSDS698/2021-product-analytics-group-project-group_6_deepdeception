@@ -30,6 +30,10 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password:', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
+class PredictionForm(FlaskForm):
+    statement = StringField('Statement:', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
 class LogInForm(FlaskForm):
     username = StringField('Username:', validators=[DataRequired()])
     password = PasswordField('Password:', validators=[DataRequired()])
