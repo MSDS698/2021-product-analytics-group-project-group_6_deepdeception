@@ -71,8 +71,7 @@ def register():
         user_count = classes.User.query.filter_by(username=username).count() \
                      + classes.User.query.filter_by(email=email).count()
         if user_count > 0:
-            return '<h1>Error - Existing user : ' + username \
-                   + ' OR ' + email + '</h1>'
+            flash('Error - Existing user : ' + username + ' OR ' + email)
         else:
             user = classes.User(username, email, password)
             db.session.add(user)
@@ -100,6 +99,8 @@ def login():
         if user is not None and user.check_password(password):
             login_user(user)
             return redirect(url_for('predict'))
+        else:
+            flash('Invalid username and password combination!')
 
     return render_template('login.html', form=login_form)
 
