@@ -6,3 +6,5 @@
 
 
 code/app/trained_model/*
+code/app/trained_model/*.DS_Store
+code/app/*.DS_Store
