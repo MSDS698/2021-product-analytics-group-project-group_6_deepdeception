@@ -1,6 +1,6 @@
 from app import application, classes, db, model, tokenizer
 from app.model import predict_statement
-from flask import render_template, redirect, url_for
+from flask import flash,render_template, redirect, url_for
 from flask_login import current_user, login_user, login_required, logout_user
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
@@ -81,8 +81,13 @@ def register():
     return render_template('register.html', form=registration_form)
 
 
+
+@application.route('/')
+def main():
+    return render_template('index.html')
+
+
 @application.route('/login', methods=['GET', 'POST'])
-@application.route('/', methods=['GET', 'POST'])
 def login():
     login_form = classes.LogInForm()
     if login_form.validate_on_submit():
@@ -102,17 +107,16 @@ def login():
 @application.route('/logout')
 @login_required
 def logout():
-    before_logout = '<h1> Before logout - is_autheticated : ' \
-                    + str(current_user.is_authenticated) + '</h1>'
-
     logout_user()
-
-    after_logout = '<h1> After logout - is_autheticated : ' \
-                   + str(current_user.is_authenticated) + '</h1>'
-    return before_logout + after_logout
+    return redirect(url_for('index'))
 
 
-@application.route('/team')
-def team():
-    """Index Page : Renders index.html with author name."""
-    return (render_template('our-team.html', author='Deception Perception'))
+@application.errorhandler(401)
+def re_route(e):
+    return redirect(url_for('login'))
+
+
+# @application.route('/team')
+# def team():
+#     """Index Page : Renders index.html with author name."""
+#     return (render_template('our-team.html', author='Deception Perception'))
