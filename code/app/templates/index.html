@@ -35,7 +35,7 @@
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Sign Up</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/register">Sign Up</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,45 +44,45 @@
         <header class="masthead">
             <div class="container">
                 <div class="masthead-subheading">Deception detection made easy.</div>
-                <div class="masthead-heading text-uppercase">Just enter your sentence below.</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Add Sentence Here</a>
+                <div class="masthead-heading text-uppercase">Just click the button below.</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="/predict">Start Predicting!</a>
             </div>
         </header>
 <!-- About-->
-        <section class="page-section" id="about">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">About</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">About</h2>
+                <h3 class="section-subheading text-muted">Our mission is to save you time, reduce bias, and mitigate risk.</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-clock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Time</h4>
+                    <p class="text-muted">If a deposition is a minimum of two hours, then necessarily a human must spend at least the same amount of time to read, reread, annotate and summarize that data. Our technology aims to help attorneys figure out which documents to look at first to get work done the most efficiently. If one case ends quickly, another can begin bringing a reputation for speed and final outcome.</p>
                 </div>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">E-Commerce</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Responsive Design</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="fa-stack fa-4x">
-                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                        </span>
-                        <h4 class="my-3">Web Security</h4>
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                    </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-balance-scale-left fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Bias</h4>
+                    <p class="text-muted">Every person that reads a file, litigation document, etc. brings their own personal bias which may cloud their judgment. When a computer is allowed to sift through data it too necessarily has its own bias, but this bias is constant while simultaneously being malleable. If a data scientist notices bias in their model they can take steps to correct it. It is the versatility of the machine to reduce bias systematically and consistently that attracts lawyers to our product.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-surprise fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Risk</h4>
+                    <p class="text-muted">We refer to the risk we learned from our interview with a paralegal: spending time on the wrong witnesses, costing the client time in jail, allowing the client to suffer mental anguish as they await their lawyers, and the risk of putting the wrong witness on the stand to testify. Our product is meant to guide lawyers through mountains of paperwork, testimonies, and depositions in order to find their golden ticket to success.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 <!-- Team-->
         <section class="page-section bg-light" id="team">
             <div class="container">
@@ -173,47 +173,6 @@
     <!---End Row 3---->
             </div>
         </section>
-<!-- Contact-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Sign Up</h2>
-                </div>
-<!-- * * * * * * * * * * * * * * *-->
-<!-- * * SB Forms Contact Form * *-->
-<!-- * * * * * * * * * * * * * * *-->
-<!-- This form is pre-integrated with SB Forms.-->
-<!-- To make this form functional, sign up at-->
-<!-- https://startbootstrap.com/solution/contact-forms-->
-
-<section id="signup">
-<form>
-    <div class="form-group">
-      <label for="formGroupExampleInput">Name</label>
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Please enter your name">
-    </div>
-    <div class="form-group">
-      <label for="formGroupExampleInput2">Email</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please enter your email">
-    </div>
-    <div class="form-group">
-        <label for="formGroupExampleInput2">Password</label>
-        <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password has to be at least 6 digits">
-      </div>
-      <div class="form-group">
-        <label for="formGroupExampleInput2">Confirm the password</label>
-        <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Repeat your password">
-      </div>
-    
-      
-  </form>
-  </section>
-
-  <!-- Submit Button-->
-  <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Submit Information</button></div>
-</form>
-</div>
-</section>
 
 <!-- Footer-->
         <footer class="footer py-4">
