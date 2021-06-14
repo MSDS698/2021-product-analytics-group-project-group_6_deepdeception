@@ -1,2 +1,2 @@
 eb init deceptiondetection --region us-west-2 --platform Docker
-eb create deceptiondetection-env --verbose --envvars AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID --envvars AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+eb create deceptiondetection-env --verbose --envvars -i t2.xlarge AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID --envvars AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
