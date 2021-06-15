@@ -22,21 +22,21 @@ class UploadFileForm(FlaskForm):
 #     # return (render_template('index.html', author='Deep Deception'))
 
 
-@application.route('/predict', methods=['GET', 'POST'])
-@login_required
-def predict():
-    prediction_form = classes.PredictionForm()
-    if prediction_form.validate_on_submit():
-        statement = prediction_form.statement.data
-
-        soft_preds, hard_preds = predict_statement(str(statement), model=model, tokenizer=tokenizer)
-
-        if hard_preds[0] == 1:
-            return "The statement is True."
-        else:
-            return "The statement is False."
-
-    return render_template('predict.html', form=prediction_form)
+#@application.route('/predict', methods=['GET', 'POST'])
+##@login_required
+#def predict():
+#    prediction_form = classes.PredictionForm()
+#    if prediction_form.validate_on_submit():
+#        statement = prediction_form.statement.data
+#
+#        soft_preds, hard_preds = predict_statement(str(statement), model=model, tokenizer=tokenizer)
+#
+#        if hard_preds[0] == 1:
+#            return "The statement is True."
+#        else:
+#            return "The statement is False."
+#
+#    return render_template('predict.html', form=prediction_form)
 
 
 @application.route('/upload', methods=['GET', 'POST'])
