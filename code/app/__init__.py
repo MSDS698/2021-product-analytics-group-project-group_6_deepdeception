@@ -3,6 +3,7 @@ import os
 from config import Config
 from flask import Flask
 from flask_login import LoginManager
+from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 import app.model
 from app.boto3_client import download_from_s3, download_model_s3, client
@@ -24,6 +25,8 @@ model, tokenizer = model.load_model(model_directory='./app/trained_model/')
 # login_manager needs to be initiated before running the app
 login_manager = LoginManager()
 login_manager.init_app(application)
+
+bootstrap = Bootstrap(application)
 
 # Added at the bottom to avoid circular dependencies. (Altough it violates PEP8 standards)
 from app import classes
