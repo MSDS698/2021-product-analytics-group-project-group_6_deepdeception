@@ -1,6 +1,7 @@
-from app import application, classes, db, model, tokenizer
-from app.model import predict_statement
-from flask import flash,render_template, redirect, url_for
+from app import application, classes, db
+#from app import model, tokenizer
+#from app.model import predict_statement
+from flask import flash, render_template, redirect, url_for
 from flask_login import current_user, login_user, login_required, logout_user
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
@@ -39,25 +40,25 @@ class UploadFileForm(FlaskForm):
 #    return render_template('predict.html', form=prediction_form)
 
 
-@application.route('/upload', methods=['GET', 'POST'])
-@login_required
-def upload():
-    """
-    upload and process a csv file to check for deception.
-    Note: This is still a WIP
-    """
-    file = UploadFileForm()  # file : UploadFileForm class instance
-    if file.validate_on_submit():  # Check if it is a POST request and if it is valid.
-        f = file.file_selector.data  # f : Data of FileField
-        filename = f.filename
-        # filename : filename of FileField
-
-        file_dir_path = os.path.join(application.instance_path, 'files')
-        file_path = os.path.join(file_dir_path, filename)
-        # f.save(file_path)  # Save file to file_path (instance/ + 'files’ + filename)
-
-        return redirect(url_for('upload'))  # Redirect to / (/index) page.
-    return render_template('upload.html', form=file)
+#@application.route('/upload', methods=['GET', 'POST'])
+#@login_required
+#def upload():
+#    """
+#    upload and process a csv file to check for deception.
+#    Note: This is still a WIP
+#    """
+#    file = UploadFileForm()  # file : UploadFileForm class instance
+#    if file.validate_on_submit():  # Check if it is a POST request and if it is valid.
+#        f = file.file_selector.data  # f : Data of FileField
+#        filename = f.filename
+#        # filename : filename of FileField
+#
+#        file_dir_path = os.path.join(application.instance_path, 'files')
+#        file_path = os.path.join(file_dir_path, filename)
+#        # f.save(file_path)  # Save file to file_path (instance/ + 'files’ + filename)
+#
+#        return redirect(url_for('upload'))  # Redirect to / (/index) page.
+#    return render_template('upload.html', form=file)
 
 
 @application.route('/register', methods=('GET', 'POST'))
