@@ -1,16 +1,42 @@
-<html>
-<div class="container">
+{% include 'header.html'%}
 
-    <form method="POST"> <!-- post : handle submission -->
-        <h2>Sign Up </h2>
-        {{ form.csrf_token }}
-        {{ form.username.label}} {{form.username()}} <br/>
-        {{ form.email.label}} {{form.email()}}<br/>
-        {{ form.password.label}} {{form.password()}}<br/>
-        {{ form.submit()}}
+<body>
+    {% include 'navbar.html'%}
+    <div class="container login-container">
+        {% include 'flash.html' %}
+        <div class="content-section">
+            <form method="POST", action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
 
-    </form>
-    <br/>
+                    <div class="form-group username">
+                    {{ form.csrf_token }}
+                    {{ form.username.label}}
+                    <br> 
+                    {{form.username()}}
+                    </div>
+                    </br>
 
-</div> <!-- /container -->
-</html>
+                    <div class="form-group email">
+                    {{ form.email.label }}
+                    <br> 
+                    {{form.email()}}
+                    </div>
+                    </br>
+
+                    <div class="form-group password">
+                    {{ form.password.label}} 
+                    <br>
+                    {{form.password()}}
+                    </div>
+                    </br>
+
+
+                </fieldset>
+                <div class="form-group login-button">
+                {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
