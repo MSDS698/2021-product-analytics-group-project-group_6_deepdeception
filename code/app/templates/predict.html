@@ -1,0 +1,14 @@
+<html>
+<h1>Prediction for your statement</h1>
+
+<div class="container">
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.statement.label}} {{form.statement()}} <br/>
+        {{ form.submit()}}
+
+    </form>
+</br>
+</div> <!-- /container -->
+
+</html>
