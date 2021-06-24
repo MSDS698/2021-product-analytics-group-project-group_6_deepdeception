@@ -32,12 +32,73 @@ def predict():
 
         soft_preds, hard_preds = predict_statement(str(statement), model=model, tokenizer=tokenizer)
 
-        if hard_preds[0] == 1:
-            return "The statement is True."
-        else:
-            return "The statement is False."
+        dic1 = {'"said': 4.814517498016357, 'AIG': 3.624594211578369, 'were': 3.196007013320923}
+        dictionary2 = {'being': -0.0250399112701416, 'payments)': -0.04054903984069824, 'giving': -1.5874862670898438}
+
+        word1 = list(dic1.keys())[0]
+        word2 = list(dic1.keys())[1]
+        word3 = list(dic1.keys())[2]
+        
+        word4 = list(dictionary2.keys())[0]
+        word5 = list(dictionary2.keys())[1]
+        word6 = list(dictionary2.keys())[2]
+        
+        proba1 = list(dic1.values())[0]
+        proba2 = list(dic1.values())[1]
+        proba3 = list(dic1.values())[2]
+        
+        proba4 = list(dictionary2.values())[0]
+        proba5 = list(dictionary2.values())[1]
+        proba6 = list(dictionary2.values())[2]
+
+        # if hard_preds[0] == 1:
+        #     return "The statement is True."
+        # else:
+        #     return "The statement is False."
+        if True:
+            return render_template('predict.html', form=prediction_form, 
+                            word1=word1, word2=word2, word3=word3, 
+                            word4=word4, word5=word5, word6=word6, 
+                            proba1=proba1, proba2=proba2, proba3=proba3, 
+                            proba4=proba4, proba5=proba5, proba6=proba6)
 
     return render_template('predict.html', form=prediction_form)
+        
+    # prediction_form = classes.PredictionForm()
+    # if prediction_form.validate_on_submit():
+    #     statement = prediction_form.statement.data
+    #     soft_preds, hard_preds = predict_statement(str(statement), model=model, tokenizer=tokenizer)
+    #     dic1 = {'"said': 4.814517498016357, 'AIG': 3.624594211578369, 'were': 3.196007013320923}
+    #     dictionary2 = {'being': -0.0250399112701416, 'payments)': -0.04054903984069824, 'giving': -1.5874862670898438}
+
+    #     word1 = list(dic1.keys())[0]
+    #     word2 = list(dic1.keys())[1]
+    #     word3 = list(dic1.keys())[2]
+        
+    #     word4 = list(dictionary2.keys())[0]
+    #     word5 = list(dictionary2.keys())[1]
+    #     word6 = list(dictionary2.keys())[2]
+        
+    #     proba1 = list(dic1.values())[0]
+    #     proba2 = list(dic1.values())[1]
+    #     proba3 = list(dic1.values())[2]
+        
+    #     proba4 = list(dictionary2.values())[0]
+    #     proba5 = list(dictionary2.values())[1]
+    #     proba6 = list(dictionary2.values())[2]
+
+    #     if hard_preds:
+    #     # if hard_preds[0] == 1:
+    #     #     return "The statement is True."
+    #     # else:
+    #     #     return "The statement is False."
+    #         return render_template('predict.html', word1=word1, word2=word2,
+    #                             word3=word3, word4=word4, word5=word5,
+    #                             word6=word6, proba1=proba1, proba2=proba2,
+    #                             proba3=proba3, proba4=proba4, proba5=proba5,
+    #                             proba6=proba6)
+
+    # # return render_template('predict.html', form=prediction_form)
 
 
 #@application.route('/upload', methods=['GET', 'POST'])
@@ -86,6 +147,36 @@ def register():
 def main():
     return render_template('index.html')
 
+@application.route('/plotly')
+def plotly():
+    return render_template('plotly.html')
+
+@application.route('/google')
+def google():
+    dic1 = {'"said': 4.814517498016357, 'AIG': 3.624594211578369, 'were': 3.196007013320923}
+    dictionary2 = {'being': -0.0250399112701416, 'payments)': -0.04054903984069824, 'giving': -1.5874862670898438}
+
+    word1 = list(dic1.keys())[0]
+    word2 = list(dic1.keys())[1]
+    word3 = list(dic1.keys())[2]
+    
+    word4 = list(dictionary2.keys())[0]
+    word5 = list(dictionary2.keys())[1]
+    word6 = list(dictionary2.keys())[2]
+    
+    proba1 = list(dic1.values())[0]
+    proba2 = list(dic1.values())[1]
+    proba3 = list(dic1.values())[2]
+    
+    proba4 = list(dictionary2.values())[0]
+    proba5 = list(dictionary2.values())[1]
+    proba6 = list(dictionary2.values())[2]
+    
+    return render_template('google.html', word1=word1, word2=word2,
+                            word3=word3, word4=word4, word5=word5,
+                            word6=word6, proba1=proba1, proba2=proba2,
+                            proba3=proba3, proba4=proba4, proba5=proba5,
+                            proba6=proba6)
 
 @application.route('/login', methods=['GET', 'POST'])
 def login():

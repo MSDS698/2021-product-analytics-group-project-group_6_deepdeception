@@ -16,7 +16,7 @@ db = SQLAlchemy(application)
 db.create_all()
 db.session.commit()
 
-## Download model
+# Download model
 download_model_s3(save_directory='app/trained_model/')
 
 # Load model
