@@ -3,7 +3,7 @@ from flask_login import UserMixin
 from werkzeug.security import check_password_hash
 from werkzeug.security import generate_password_hash
 from wtforms import PasswordField, StringField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length, ValidationError
 
 from app import db, login_manager
 
@@ -30,8 +30,12 @@ class RegistrationForm(FlaskForm):
     password = PasswordField('Password:', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
+def word_count_check(form, field):
+    if len(field.data.split(' ')) <= 5:
+        raise ValidationError('Field must be greater than 5 words')
+
 class PredictionForm(FlaskForm):
-    statement = StringField('Statement:', validators=[DataRequired()])
+    statement = StringField('Statement:', validators=[DataRequired(), word_count_check])
     submit = SubmitField('Submit')
 
 class LogInForm(FlaskForm):

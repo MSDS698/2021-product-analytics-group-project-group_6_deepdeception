@@ -1,6 +1,8 @@
 from app import application, classes, db
 from app import model, tokenizer
 from app.model import predict_statement
+from app.model import bigram_explain, monogram_explain
+
 from flask import flash, render_template, redirect, url_for
 from flask_login import current_user, login_user, login_required, logout_user
 from flask_wtf import FlaskForm
@@ -32,8 +34,11 @@ def predict():
 
         soft_preds, hard_preds = predict_statement(str(statement), model=model, tokenizer=tokenizer)
 
-        dic1 = {'"said': 4.814517498016357, 'AIG': 3.624594211578369, 'were': 3.196007013320923}
-        dictionary2 = {'being': -0.0250399112701416, 'payments)': -0.04054903984069824, 'giving': -1.5874862670898438}
+#       # dummy dics
+#        dic1 = {'"said': 4.814517498016357, 'AIG': 3.624594211578369, 'were': 3.196007013320923}
+#        dictionary2 = {'being': -0.0250399112701416, 'payments)': -0.04054903984069824, 'giving': -1.5874862670898438}
+
+        dic1, dictionary2 = monogram_explain(str(statement), model, tokenizer)
 
         word1 = list(dic1.keys())[0]
         word2 = list(dic1.keys())[1]
