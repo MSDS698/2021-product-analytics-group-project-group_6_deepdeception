@@ -26,6 +26,8 @@
 
 <head>
 	<title>Google Charts Tutorial</title>
+	<link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-progressbar/0.9.0/bootstrap-progressbar.js' rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
 	</script>
 	<script type = "text/javascript">
@@ -34,8 +36,34 @@
 </head>
 
 <body>
-	{% include 'navbar.html'%}
+	<br>
+	<br>
+	<br>
 
+	{% include 'navbar.html'%}
+	<br>
+	<br>
+	<br>
+<!--progress bar-->
+	{% if soft_preds is defined %}
+	
+     <h1  style="color:coral;"> {{veracity}}</h1>
+
+    <h2 style="color:coral"> Model Confidence Analysis: </h2>
+
+	<div class="progress">
+        <!-- {% set prediction = "%.0f"| format(soft_preds[0].data|float*100)  %} -->
+		<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" aria-valuenow="{{ '%.0f'| format(soft_preds[0].data|float*100)}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{ '%.0f'| format(soft_preds[0].data|float*100) }}%;">
+		{{ '%.0f'| format(soft_preds[0].data|float*100)}} % probability being false 
+		</div>
+
+		<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" aria-valuenow="{{ '%.0f'| format(soft_preds[1].data|float*100)}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{ '%.0f'| format(soft_preds[1].data|float*100) }}%;">
+			{{ '%.0f'| format(soft_preds[1].data|float*100)}} % probability being true
+			</div>	
+	</div>
+	{% endif %}
+
+<!--google vizulization-->
 	<div id = "container" style = "width: 800px; height: 800px; margin: 100px auto;">
 	</div>
 	<script language = "JavaScript">

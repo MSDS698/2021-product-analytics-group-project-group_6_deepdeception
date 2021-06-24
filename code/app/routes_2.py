@@ -56,16 +56,18 @@ def predict():
         proba5 = list(dictionary2.values())[1]
         proba6 = list(dictionary2.values())[2]
 
-        # if hard_preds[0] == 1:
-        #     return "The statement is True."
-        # else:
-        #     return "The statement is False."
+        if hard_preds[0] == 1:
+            veracity = "The statement is true."
+        else:
+            veracity = "The statement is false." 
         if True:
             return render_template('predict.html', form=prediction_form, 
                             word1=word1, word2=word2, word3=word3, 
                             word4=word4, word5=word5, word6=word6, 
                             proba1=proba1, proba2=proba2, proba3=proba3, 
-                            proba4=proba4, proba5=proba5, proba6=proba6)
+                            proba4=proba4, proba5=proba5, proba6=proba6,
+                            soft_preds= soft_preds[0], hard_preds = hard_preds[0],
+                            veracity=veracity)
 
     return render_template('predict.html', form=prediction_form)
         
