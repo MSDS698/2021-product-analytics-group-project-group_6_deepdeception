@@ -93,7 +93,20 @@
 			 [word6,  proba6]
 		  ]);
 
-		  var options = {title: 'Top 3 Deceptive and Truthful Words'}; 
+		  var options = {
+				title: 'Top 3 Deceptive and Truthful Words',
+				titleTextStyle: {
+//							color: '#cc00cc',    // any HTML string color ('red', '#cc00cc')
+//							fontName: 'Times New Roman', // i.e. 'Times New Roman'
+							fontSize: 28, // 12, 18 whatever you want (don't specify px)
+//							bold: True,    // true or false
+//							italic: False   // true of false
+				},
+				backgroundColor: '#E4E4E4',
+				hAxis: {textPosition: 'none', gridlines: {color: 'transparent'}},
+				vAxis: {gridlines: {color: 'transparent'}, textStyle: {fontSize:15, bold: true}},
+				legend: {position: 'none'},
+		  };
 
 		  // Instantiate and draw the chart.
 		  var chart = new google.visualization.BarChart(document.getElementById('container'));
