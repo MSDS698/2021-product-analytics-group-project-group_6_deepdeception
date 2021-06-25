@@ -83,14 +83,14 @@
 		  var proba6 = {{proba6}};
 
 		  var data = google.visualization.arrayToDataTable([
-			 ['Unigram', 'Percent'],
+			 ['Unigram', 'Percent', { role: 'style' }],
 			 // ['blue', .1],
-			 [word1,  proba1],
-			 [word2,  proba2],
-			 [word3,  proba3],
-			 [word4,  proba4],
-			 [word5,  proba5],
-			 [word6,  proba6]
+			 [word1,  proba1, '#1c1e30'],
+			 [word2,  proba2, '#1c1e30'],
+			 [word3,  proba3, '#1c1e30'],
+			 [word4,  proba4, '#fac13a'],
+			 [word5,  proba5, '#fac13a'],
+			 [word6,  proba6, '#fac13a']
 		  ]);
 
 		  var options = {
