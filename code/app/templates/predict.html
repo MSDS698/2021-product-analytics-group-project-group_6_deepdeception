@@ -52,7 +52,7 @@
 
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark " id="mainNav">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style='background-color:#20243C;'>
 		<div class="container">
 			<a class="navbar-brand" href="/#page-top">Deception Perception</a>
 				<!--
@@ -68,6 +68,7 @@
 					<li class="nav-item"><a class="nav-link" href="/#team" onclick="gtag('event','click',{'event_category':'nav_button','event_label':'nav_team',value:1})">Team</a></li>
 					<li class="nav-item"><a class="nav-link" href="/login" onclick="gtag('event','click',{'event_category':'nav_button','event_label':'nav_login',value:1})">Login</a></li>
 					<li class="nav-item"><a class="nav-link" href="/register" onclick="gtag('event','click',{'event_category':'nav_button','event_label':'nav_register',value:1})">Sign Up</a></li>
+					<li class="nav-item"><a class="nav-link" href="/plotly" onclick="gtag('event','click',{'event_category':'nav_button','event_label':'nav_sources',value:1})">Sources</a></li>
 				</ul>
 			</div>
 		</div>
@@ -81,8 +82,12 @@
 	
      <h1  style="color:#fac13a;"> {{veracity}}</h1>
 	 <br>
+	 <br>
+	 <br>
+	 <br>
 
     <h2 style="color:#fac13a"> Model Confidence and Reasoning Analysis: </h2>
+	<p style='color:white;'>Red and blue colored progress bar below denotes what our fine-tuned BERT model thinks about the likelihood of a given sentence being deceptive or truthful respectively.</p>
     <br>
 	<div class="progress">
         <!-- {% set prediction = "%.0f"| format(soft_preds[0].data|float*100)  %} -->
@@ -94,10 +99,17 @@
 			{{ '%.0f'| format(soft_preds[1].data|float*100)}} % probability being true
 			</div>	
 	</div>
+	<br>
+	<br>
+	<p style='color:white;'>
+		Vertical bar plot below shows the impact of adding the corresponding word to the whole sentence’s deceptive/truthfulness. Ex; dark colored bar shows that, adding the corresponding word makes the sentence x% more likely to be true and vice versa for the light colored bar.
+	</p>
 	{% endif %}
+
 </div>
+
 <!--google vizulization-->
-	<div id = "container" style = "width: 800px; height: 800px; margin: 70px auto;">
+	<div id = "container" style = "width: 800px; height: 800px; margin: 10px auto;">
 	</div>
 	<script language = "JavaScript">
 	   function drawChart() {
