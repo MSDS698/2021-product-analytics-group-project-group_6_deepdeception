@@ -33,7 +33,7 @@
 
 
                 </fieldset>
-                <div class="form-group login-button">
+                <div class="form-group login-button" onclick="gtag('event','click',{'event_category':'login/signup','event_label':'signup_submit',value:1})">
                 {{ form.submit(class="btn btn-outline-info") }}
                 </div>
             </form>
