@@ -1,6 +1,7 @@
 {% include 'header.html'%}
+{% include 'navbar.html'%}
 
-<h1>
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-W3KMFRQR5M"></script>
 		<script>
@@ -11,9 +12,15 @@
 		  gtag('config', 'G-W3KMFRQR5M');
 		</script>
 		<title>Prediction Page</title>
-	Predict your statement
+
+		<br>
+		<br>
+		<br>
+
+		<h1 style="color:#fac13a;">Predict your statement
 	</h1>
-	
+		<br>
+
 	<div class="container" onclick="gtag('event','click',{'event_category':'predict_button','event_label':'predict',value:10})">
 		<form method="POST">
 			{{ form.csrf_token }}
@@ -21,7 +28,6 @@
 			{{ form.submit()}}
 	
 		</form>
-	</br>
 	</div>
 
 <head>
@@ -36,20 +42,15 @@
 </head>
 
 <body>
-	<br>
-	<br>
-	<br>
 
-	{% include 'navbar.html'%}
-	<br>
-	<br>
-	<br>
+
 <!--progress bar-->
+<div style="margin: 70px;padding: 70px;">
 	{% if soft_preds is defined %}
 	
-     <h1  style="color:coral;"> {{veracity}}</h1>
+     <h1  style="color:#fac13a;"> {{veracity}}</h1>
 
-    <h2 style="color:coral"> Model Confidence Analysis: </h2>
+    <h2 style="color:#fac13a"> Model Confidence and Reasoning Analysis: </h2>
 
 	<div class="progress">
         <!-- {% set prediction = "%.0f"| format(soft_preds[0].data|float*100)  %} -->
@@ -62,7 +63,7 @@
 			</div>	
 	</div>
 	{% endif %}
-
+</div>
 <!--google vizulization-->
 	<div id = "container" style = "width: 800px; height: 800px; margin: 100px auto;">
 	</div>
