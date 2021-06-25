@@ -22,7 +22,7 @@
                     </div>                   
                     <br>
                 </fieldset>
-                <div class="login-button">
+                <div class="login-button" onclick="gtag('event','click',{'event_category':'login/signup','event_label':'login_submit',value:1})">
                 {{ form.submit(class="btn btn-outline-info") }}
                 </div>
             </form>
